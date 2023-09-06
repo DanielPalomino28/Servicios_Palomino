@@ -13,8 +13,8 @@ namespace Servicios_Palomino.Clases
         public void CalcularValorSinDescuento()
         {
             if (Validar())
-            {   
-               
+            {
+                reservasInder.Error = "";
                 //Continuo
                 double valorSinDescuento = reservasInder.ValorHora * reservasInder.CantidadHoras;
                 reservasInder.ValorReservaSinDescuento = valorSinDescuento;
@@ -36,7 +36,7 @@ namespace Servicios_Palomino.Clases
             {
                 Descuento = reservasInder.ValorReservaSinDescuento * reservasInder.DescuentoHoras;
             }
-            if(reservasInder.DiaSemana!="Sabado" && reservasInder.DiaSemana != "Domingo")
+            if (reservasInder.DiaSemana != "Sábado" && reservasInder.DiaSemana != "Domingo" && reservasInder.DiaSemana != "Festivo")
             {
                 Descuento += reservasInder.ValorReservaSinDescuento * reservasInder.DescuentoDia;
             }
@@ -52,7 +52,7 @@ namespace Servicios_Palomino.Clases
             reservasInder.Error = "";
             if (reservasInder.CantidadHoras < 1 || reservasInder.CantidadHoras > 24)
             {
-                reservasInder.Error = "Las horas a reservar deben estar entre 0 y 24.";
+                reservasInder.Error = "Las horas a reservar deben estar entre 1 y 24.";
                 continuar = false;
             }
             return continuar;

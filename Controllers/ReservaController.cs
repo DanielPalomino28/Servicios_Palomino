@@ -4,12 +4,15 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 //Agregar referencias de clases y modelos
 using Servicios_Palomino.Clases;
 using Servicios_Palomino.Models;
 
+
 namespace Servicios_Palomino.Controllers
-{
+{   //localhost puerto de la aplicación
+    [EnableCors(origins: "http://localhost:59187", headers: "*", methods: "*")]
     public class ReservaController : ApiController
     {
         // POST api/<controller>
