@@ -99,7 +99,7 @@ namespace Servicios_Palomino.Clases
             }
             if (serviciosEpm.ConsumoEnergia < 0)
             {
-                serviciosEpm.Error += "\nEl consumo de energia debe ser mayor o igual a 0.";
+                serviciosEpm.Error += "\n El consumo de energia debe ser mayor o igual a 0.";
                 continuar = false;
             }
             return continuar;

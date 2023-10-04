@@ -45,10 +45,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Cors, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.AspNet.Cors.5.2.9\lib\net45\System.Web.Cors.dll</HintPath>
     </Reference>
@@ -161,17 +168,112 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Clases\clsEmpleado.cs" />
+    <Compile Include="Clases\clsSeguroVehiculos.cs" />
+    <Compile Include="Clases\clsCafeteriaITM.cs" />
     <Compile Include="Clases\clsServiciosEpm.cs" />
     <Compile Include="Clases\clsReservasInder.cs" />
+    <Compile Include="Controllers\EmpleadoController.cs" />
+    <Compile Include="Controllers\SeguroVehiculosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\CafeteriaITMController.cs" />
     <Compile Include="Controllers\ServiciosEpmController.cs" />
     <Compile Include="Controllers\ReservaController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CARGo.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CIUDad.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CLIEnte.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\COntactoPRoveedor.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBSuper.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBSuper.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBSuper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBSuper.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBSuper.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DEPArtamento.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DEtalleDEvolucion.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DEtalleFActura.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DEtalleFacturaCompra.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DEVOlucion.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EMPLeado.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EMpleadoCArgo.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FACTura.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FActuraCOmpra.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NOtaCRedito.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PAI.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRODucto.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRoductoPRoveedor.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PROVeedor.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SeguroVehiculos.cs" />
+    <Compile Include="Models\CafeteriaITM.cs" />
     <Compile Include="Models\ServicosEpm.cs" />
     <Compile Include="Models\ReservasInder.cs" />
+    <Compile Include="Models\SUCUrsal.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SUPErmercado.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TELEfono.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TIpoPRoducto.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TIpoTElefono.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +296,16 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Models\DBSuper.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBSuper.edmx</DependentUpon>
+      <LastGenOutput>DBSuper.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DBSuper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBSuper.edmx</DependentUpon>
+      <LastGenOutput>DBSuper.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -219,6 +331,13 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Models\DBSuper.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBSuper.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DBSuper.edmx.diagram">
+      <DependentUpon>DBSuper.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -313,6 +432,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
