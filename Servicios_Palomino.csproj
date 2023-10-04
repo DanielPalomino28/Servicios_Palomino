@@ -169,6 +169,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Clases\clsCliente.cs" />
+    <Compile Include="Clases\clsRecarga.cs" />
     <Compile Include="Clases\clsEmpleado.cs" />
     <Compile Include="Clases\clsSeguroVehiculos.cs" />
     <Compile Include="Clases\clsCafeteriaITM.cs" />
@@ -176,6 +177,7 @@
     <Compile Include="Clases\clsReservasInder.cs" />
     <Compile Include="Clases\clsTipoProducto.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\RecargaController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\SeguroVehiculosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -198,6 +200,21 @@
     </Compile>
     <Compile Include="Models\COntactoPRoveedor.cs">
       <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBExamen.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBExamen.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBExamen.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBExamen.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DBExamen.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBExamen.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DBSuper.Context.cs">
       <AutoGen>True</AutoGen>
@@ -256,6 +273,9 @@
     <Compile Include="Models\PROVeedor.cs">
       <DependentUpon>DBSuper.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Recarga.cs">
+      <DependentUpon>DBExamen.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SeguroVehiculos.cs" />
     <Compile Include="Models\CafeteriaITM.cs" />
     <Compile Include="Models\ServicosEpm.cs" />
@@ -300,6 +320,16 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Models\DBExamen.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBExamen.edmx</DependentUpon>
+      <LastGenOutput>DBExamen.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DBExamen.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBExamen.edmx</DependentUpon>
+      <LastGenOutput>DBExamen.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\DBSuper.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBSuper.edmx</DependentUpon>
@@ -341,6 +371,13 @@
     </EntityDeploy>
     <Content Include="Models\DBSuper.edmx.diagram">
       <DependentUpon>DBSuper.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\DBExamen.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DBExamen.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DBExamen.edmx.diagram">
+      <DependentUpon>DBExamen.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
