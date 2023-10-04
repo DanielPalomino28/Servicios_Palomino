@@ -9,6 +9,7 @@
 
 namespace Servicios_Palomino.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -29,12 +30,15 @@ namespace Servicios_Palomino.Models
         public string Direccion { get; set; }
         public Nullable<System.DateTime> FechaNacimiento { get; set; }
         public string Email { get; set; }
-    
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<DEVOlucion> DEVOlucions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<FACTura> FACTuras { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<TELEfono> TELEfonoes { get; set; }
     }
 }

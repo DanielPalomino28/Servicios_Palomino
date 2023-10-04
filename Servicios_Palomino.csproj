@@ -168,12 +168,14 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Clases\clsCliente.cs" />
     <Compile Include="Clases\clsEmpleado.cs" />
     <Compile Include="Clases\clsSeguroVehiculos.cs" />
     <Compile Include="Clases\clsCafeteriaITM.cs" />
     <Compile Include="Clases\clsServiciosEpm.cs" />
     <Compile Include="Clases\clsReservasInder.cs" />
     <Compile Include="Clases\clsTipoProducto.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\SeguroVehiculosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
