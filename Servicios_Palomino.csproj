@@ -173,12 +173,14 @@
     <Compile Include="Clases\clsCafeteriaITM.cs" />
     <Compile Include="Clases\clsServiciosEpm.cs" />
     <Compile Include="Clases\clsReservasInder.cs" />
+    <Compile Include="Clases\clsTipoProducto.cs" />
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\SeguroVehiculosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CafeteriaITMController.cs" />
     <Compile Include="Controllers\ServiciosEpmController.cs" />
     <Compile Include="Controllers\ReservaController.cs" />
+    <Compile Include="Controllers\TipoProductoController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
