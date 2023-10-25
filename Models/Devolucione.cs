@@ -12,21 +12,16 @@ namespace Servicios_Palomino.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DEPArtamento
+    public partial class Devolucione
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public DEPArtamento()
-        {
-            this.CIUDads = new HashSet<CIUDad>();
-        }
-    
         public int Codigo { get; set; }
-        public string Nombre { get; set; }
+        public Nullable<int> CodigoVenta { get; set; }
+        public Nullable<int> CodigoProducto { get; set; }
+        public Nullable<System.DateTime> FechaDevolucion { get; set; }
+        public Nullable<int> CantidadDevuelta { get; set; }
         public bool Activo { get; set; }
-        public int CodigoPais { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CIUDad> CIUDads { get; set; }
-        public virtual PAI PAI { get; set; }
+        public virtual Venta Venta { get; set; }
+        public virtual Producto Producto { get; set; }
     }
 }

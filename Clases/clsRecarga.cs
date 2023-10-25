@@ -10,26 +10,40 @@ namespace Servicios_Palomino.Clases
     {
         public Recarga recarga { get; set; }
         private DBExamenEntities dbRecarga = new DBExamenEntities();
-        /*
-        private void CalcularBono()
+        
+        private void CalcularIncremento()
         {
-            if (empleado.experiencia < 5)
+            if (recarga.ValorRecarga > 20000)
             {
-                empleado.bono = 0;
+                recarga.ValorIncremento = (int)(recarga.ValorRecarga*0.4);
             }
             else
             {
-                empleado.bono = 10;
+                recarga.ValorIncremento = 0;
             }
+            recarga.TotalRecarga=CalcularValorTotal(recarga.ValorIncremento);
         }
-        */
+
+        private int CalcularValorTotal(int valorIncremento)
+        {
+            if (valorIncremento > 0)
+            {
+                recarga.TotalRecarga = recarga.ValorRecarga+valorIncremento;
+            }
+            else
+            {
+                recarga.TotalRecarga = recarga.ValorRecarga;
+            }
+            return recarga.TotalRecarga;
+        }
+
         public Recarga Consultar(string documento)
         {
             return dbRecarga.Recargas.FirstOrDefault(e => e.Documento == documento);
         }
         public string Insertar()
         {
-            //CalcularBono();
+            CalcularIncremento();
             try
             {
                 dbRecarga.Recargas.Add(recarga);
@@ -43,7 +57,7 @@ namespace Servicios_Palomino.Clases
         }
         public string Actualizar()
         {
-            //CalcularBono();
+            CalcularIncremento();
             try
             {
                 //dbSuper.EMPLeadoes.AddOrInsert(empleado);

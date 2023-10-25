@@ -12,15 +12,16 @@ namespace Servicios_Palomino.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DEtalleFacturaCompra
+    public partial class Traslado
     {
         public int Codigo { get; set; }
-        public int NumeroFactura { get; set; }
-        public int CodigoProducto { get; set; }
-        public int Cantidad { get; set; }
-        public int ValorUnitario { get; set; }
+        public Nullable<int> CodigoEmpleado { get; set; }
+        public Nullable<int> CodigoProducto { get; set; }
+        public Nullable<int> Cantidad { get; set; }
+        public Nullable<System.DateTime> FechaTraslado { get; set; }
+        public bool Activo { get; set; }
     
-        public virtual PRODucto PRODucto { get; set; }
-        public virtual FActuraCOmpra FActuraCOmpra { get; set; }
+        public virtual Empleado Empleado { get; set; }
+        public virtual Producto Producto { get; set; }
     }
 }

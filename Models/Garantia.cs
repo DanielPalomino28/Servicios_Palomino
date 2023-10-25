@@ -12,21 +12,14 @@ namespace Servicios_Palomino.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class CIUDad
+    public partial class Garantia
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CIUDad()
-        {
-            this.SUCUrsals = new HashSet<SUCUrsal>();
-        }
-    
         public int Codigo { get; set; }
-        public string Nombre { get; set; }
+        public Nullable<int> CodigoVenta { get; set; }
+        public Nullable<int> DuracionGarantia { get; set; }
+        public Nullable<System.DateTime> FechaInicio { get; set; }
         public bool Activo { get; set; }
-        public int CodigoDepartamento { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SUCUrsal> SUCUrsals { get; set; }
-        public virtual DEPArtamento DEPArtamento { get; set; }
+        public virtual Venta Venta { get; set; }
     }
 }

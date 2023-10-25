@@ -12,11 +12,16 @@ namespace Servicios_Palomino.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class NOtaCRedito
+    public partial class Transaccione
     {
-        public int Numero { get; set; }
-        public int CodigoDevolucion { get; set; }
-        public int Valor { get; set; }
-        public System.DateTime FechaValidez { get; set; }
+        public int Codigo { get; set; }
+        public Nullable<int> CodigoVenta { get; set; }
+        public Nullable<int> CodigoMetodoPago { get; set; }
+        public Nullable<decimal> Monto { get; set; }
+        public Nullable<System.DateTime> FechaTransaccion { get; set; }
+        public bool Activo { get; set; }
+    
+        public virtual MetodosPago MetodosPago { get; set; }
+        public virtual Venta Venta { get; set; }
     }
 }

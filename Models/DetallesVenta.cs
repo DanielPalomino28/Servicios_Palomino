@@ -12,15 +12,15 @@ namespace Servicios_Palomino.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DEtalleFActura
+    public partial class DetallesVenta
     {
         public int Codigo { get; set; }
-        public int Numero { get; set; }
-        public int CodigoProducto { get; set; }
-        public int Cantidad { get; set; }
-        public int ValorUnitario { get; set; }
+        public Nullable<int> CodigoVenta { get; set; }
+        public Nullable<int> CodigoProducto { get; set; }
+        public Nullable<int> Cantidad { get; set; }
+        public Nullable<decimal> Subtotal { get; set; }
     
-        public virtual PRODucto PRODucto { get; set; }
-        public virtual FACTura FACTura { get; set; }
+        public virtual Venta Venta { get; set; }
+        public virtual Producto Producto { get; set; }
     }
 }

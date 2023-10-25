@@ -12,16 +12,18 @@ namespace Servicios_Palomino.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class PRoductoPRoveedor
+    public partial class MetodosPago
     {
-        public int Codigo { get; set; }
-        public string Documento { get; set; }
-        public int CodigoProducto { get; set; }
-        public int ValorUnitario { get; set; }
-        public System.DateTime FechaCotizacion { get; set; }
-        public System.DateTime FechaValidez { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MetodosPago()
+        {
+            this.Transacciones = new HashSet<Transaccione>();
+        }
     
-        public virtual PRODucto PRODucto { get; set; }
-        public virtual PROVeedor PROVeedor { get; set; }
+        public int Codigo { get; set; }
+        public string Nombre { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Transaccione> Transacciones { get; set; }
     }
 }

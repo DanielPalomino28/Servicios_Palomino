@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e1060bd26bbb44519941e381a7e236d4" Name="Diagram1">
+        <EntityTypeShape EntityType="VentaAccesoriosModel.CategoriasProducto" Width="1.5" PointX="1.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaAccesoriosModel.Cliente" Width="1.5" PointX="3.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaAccesoriosModel.Comentario" Width="1.5" PointX="8.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaAccesoriosModel.DetallesVenta" Width="1.5" PointX="8.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaAccesoriosModel.Devolucione" Width="1.5" PointX="11.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaAccesoriosModel.Empleado" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaAccesoriosModel.Garantia" Width="1.5" PointX="8.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaAccesoriosModel.Inventario" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaAccesoriosModel.MetodosPago" Width="1.5" PointX="9" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaAccesoriosModel.NotasCredito" Width="1.5" PointX="8.25" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaAccesoriosModel.Producto" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaAccesoriosModel.Proveedore" Width="1.5" PointX="1.5" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaAccesoriosModel.sysdiagram" Width="1.5" PointX="3.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaAccesoriosModel.Transaccione" Width="1.5" PointX="11.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaAccesoriosModel.Traslado" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VentaAccesoriosModel.Venta" Width="1.5" PointX="6" PointY="10.875" IsExpanded="true" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__Productos__Codig__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__Ventas__CodigoCl__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__Comentari__Codig__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__DetallesV__Codig__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__DetallesV__Codig__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__Devolucio__Codig__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__Devolucio__Codig__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__Traslados__Codig__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__Ventas__CodigoEm__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__Garantias__Codig__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__Inventari__Codig__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__Transacci__Codig__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__NotasCred__Codig__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__Productos__Codig__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__Traslados__Codig__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="VentaAccesoriosModel.FK__Transacci__Codig__59FA5E80" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -12,19 +12,14 @@ namespace Servicios_Palomino.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TIpoTElefono
+    public partial class NotasCredito
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TIpoTElefono()
-        {
-            this.TELEfonoes = new HashSet<TELEfono>();
-        }
-    
         public int Codigo { get; set; }
-        public string Nombre { get; set; }
+        public Nullable<int> CodigoVenta { get; set; }
+        public Nullable<decimal> Monto { get; set; }
+        public Nullable<System.DateTime> FechaEmision { get; set; }
         public bool Activo { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TELEfono> TELEfonoes { get; set; }
+        public virtual Venta Venta { get; set; }
     }
 }

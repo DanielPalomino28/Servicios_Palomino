@@ -9,36 +9,23 @@
 
 namespace Servicios_Palomino.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class CLIEnte
+    public partial class Cliente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CLIEnte()
+        public Cliente()
         {
-            this.DEVOlucions = new HashSet<DEVOlucion>();
-            this.FACTuras = new HashSet<FACTura>();
-            this.TELEfonoes = new HashSet<TELEfono>();
+            this.Ventas = new HashSet<Venta>();
         }
     
-        public string Documento { get; set; }
+        public int Codigo { get; set; }
         public string Nombre { get; set; }
-        public string PrimerApellido { get; set; }
-        public string SegundoApellido { get; set; }
-        public string Direccion { get; set; }
-        public Nullable<System.DateTime> FechaNacimiento { get; set; }
         public string Email { get; set; }
-        
+        public bool Activo { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<DEVOlucion> DEVOlucions { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<FACTura> FACTuras { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
-        public virtual ICollection<TELEfono> TELEfonoes { get; set; }
+        public virtual ICollection<Venta> Ventas { get; set; }
     }
 }

@@ -9,28 +9,25 @@
 
 namespace Servicios_Palomino.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class EMPLeado
+    public partial class Empleado
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EMPLeado()
+        public Empleado()
         {
-            this.EMpleadoCArgoes = new HashSet<EMpleadoCArgo>();
+            this.Traslados = new HashSet<Traslado>();
+            this.Ventas = new HashSet<Venta>();
         }
     
-        public string Documento { get; set; }
+        public int Codigo { get; set; }
         public string Nombre { get; set; }
-        public string PrimerApellido { get; set; }
-        public string SegundoApellido { get; set; }
-        public string Direccion { get; set; }
-        public string Telefono { get; set; }
-        public Nullable<System.DateTime> FechaNacimiento { get; set; }
-        [JsonIgnore]
+        public bool Activo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EMpleadoCArgo> EMpleadoCArgoes { get; set; }
+        public virtual ICollection<Traslado> Traslados { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Venta> Ventas { get; set; }
     }
 }

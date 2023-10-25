@@ -1,0 +1,1103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VentaAccesoriosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CategoriasProductos">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="255" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comentarios">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoVenta" Type="int" />
+          <Property Name="TextoComentario" Type="nvarchar(max)" />
+          <Property Name="FechaComentario" Type="date" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetallesVentas">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoVenta" Type="int" />
+          <Property Name="CodigoProducto" Type="int" />
+          <Property Name="Cantidad" Type="int" />
+          <Property Name="Subtotal" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="Devoluciones">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoVenta" Type="int" />
+          <Property Name="CodigoProducto" Type="int" />
+          <Property Name="FechaDevolucion" Type="date" />
+          <Property Name="CantidadDevuelta" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="255" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Garantias">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoVenta" Type="int" />
+          <Property Name="DuracionGarantia" Type="int" />
+          <Property Name="FechaInicio" Type="date" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inventario">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoProducto" Type="int" />
+          <Property Name="CantidadEnStock" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MetodosPago">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NotasCredito">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoVenta" Type="int" />
+          <Property Name="Monto" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="FechaEmision" Type="date" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="255" />
+          <Property Name="Precio" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Stock" Type="int" />
+          <Property Name="CodigoCategoria" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="CodigoProveedor" Type="int" />
+        </EntityType>
+        <EntityType Name="Proveedores">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="255" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Transacciones">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoVenta" Type="int" />
+          <Property Name="CodigoMetodoPago" Type="int" />
+          <Property Name="Monto" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="FechaTransaccion" Type="date" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Traslados">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoEmpleado" Type="int" />
+          <Property Name="CodigoProducto" Type="int" />
+          <Property Name="Cantidad" Type="int" />
+          <Property Name="FechaTraslado" Type="date" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ventas">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="MontoTotal" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="CodigoCliente" Type="int" />
+          <Property Name="CodigoEmpleado" Type="int" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Comentari__Codig__6383C8BA">
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="0..1" />
+          <End Role="Comentarios" Type="Self.Comentarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Comentarios">
+              <PropertyRef Name="CodigoVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetallesV__Codig__4BAC3F29">
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="0..1" />
+          <End Role="DetallesVentas" Type="Self.DetallesVentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="DetallesVentas">
+              <PropertyRef Name="CodigoVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetallesV__Codig__4CA06362">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+          <End Role="DetallesVentas" Type="Self.DetallesVentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="DetallesVentas">
+              <PropertyRef Name="CodigoProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Devolucio__Codig__5EBF139D">
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="0..1" />
+          <End Role="Devoluciones" Type="Self.Devoluciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Devoluciones">
+              <PropertyRef Name="CodigoVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Devolucio__Codig__5FB337D6">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+          <End Role="Devoluciones" Type="Self.Devoluciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Devoluciones">
+              <PropertyRef Name="CodigoProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Garantias__Codig__5070F446">
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="0..1" />
+          <End Role="Garantias" Type="Self.Garantias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Garantias">
+              <PropertyRef Name="CodigoVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inventari__Codig__5441852A">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+          <End Role="Inventario" Type="Self.Inventario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Inventario">
+              <PropertyRef Name="CodigoProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NotasCred__Codig__6C190EBB">
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="0..1" />
+          <End Role="NotasCredito" Type="Self.NotasCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="NotasCredito">
+              <PropertyRef Name="CodigoVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__Codig__412EB0B6">
+          <End Role="CategoriasProductos" Type="Self.CategoriasProductos" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriasProductos">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="CodigoCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__Codig__778AC167">
+          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="CodigoProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacci__Codig__59FA5E80">
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="0..1" />
+          <End Role="Transacciones" Type="Self.Transacciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Transacciones">
+              <PropertyRef Name="CodigoVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacci__Codig__5AEE82B9">
+          <End Role="MetodosPago" Type="Self.MetodosPago" Multiplicity="0..1" />
+          <End Role="Transacciones" Type="Self.Transacciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MetodosPago">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Transacciones">
+              <PropertyRef Name="CodigoMetodoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Traslados__Codig__6754599E">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
+          <End Role="Traslados" Type="Self.Traslados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Traslados">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Traslados__Codig__68487DD7">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="0..1" />
+          <End Role="Traslados" Type="Self.Traslados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Traslados">
+              <PropertyRef Name="CodigoProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ventas__CodigoCl__47DBAE45">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="CodigoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ventas__CodigoEm__48CFD27E">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VentaAccesoriosModelStoreContainer">
+          <EntitySet Name="CategoriasProductos" EntityType="Self.CategoriasProductos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comentarios" EntityType="Self.Comentarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetallesVentas" EntityType="Self.DetallesVentas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Devoluciones" EntityType="Self.Devoluciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Garantias" EntityType="Self.Garantias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventario" EntityType="Self.Inventario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MetodosPago" EntityType="Self.MetodosPago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NotasCredito" EntityType="Self.NotasCredito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proveedores" EntityType="Self.Proveedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transacciones" EntityType="Self.Transacciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Traslados" EntityType="Self.Traslados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ventas" EntityType="Self.Ventas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Comentari__Codig__6383C8BA" Association="Self.FK__Comentari__Codig__6383C8BA">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="Comentarios" EntitySet="Comentarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetallesV__Codig__4BAC3F29" Association="Self.FK__DetallesV__Codig__4BAC3F29">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="DetallesVentas" EntitySet="DetallesVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetallesV__Codig__4CA06362" Association="Self.FK__DetallesV__Codig__4CA06362">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="DetallesVentas" EntitySet="DetallesVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Devolucio__Codig__5EBF139D" Association="Self.FK__Devolucio__Codig__5EBF139D">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="Devoluciones" EntitySet="Devoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Devolucio__Codig__5FB337D6" Association="Self.FK__Devolucio__Codig__5FB337D6">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Devoluciones" EntitySet="Devoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Garantias__Codig__5070F446" Association="Self.FK__Garantias__Codig__5070F446">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="Garantias" EntitySet="Garantias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inventari__Codig__5441852A" Association="Self.FK__Inventari__Codig__5441852A">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Inventario" EntitySet="Inventario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NotasCred__Codig__6C190EBB" Association="Self.FK__NotasCred__Codig__6C190EBB">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="NotasCredito" EntitySet="NotasCredito" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__Codig__412EB0B6" Association="Self.FK__Productos__Codig__412EB0B6">
+            <End Role="CategoriasProductos" EntitySet="CategoriasProductos" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__Codig__778AC167" Association="Self.FK__Productos__Codig__778AC167">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacci__Codig__59FA5E80" Association="Self.FK__Transacci__Codig__59FA5E80">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="Transacciones" EntitySet="Transacciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacci__Codig__5AEE82B9" Association="Self.FK__Transacci__Codig__5AEE82B9">
+            <End Role="MetodosPago" EntitySet="MetodosPago" />
+            <End Role="Transacciones" EntitySet="Transacciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Traslados__Codig__6754599E" Association="Self.FK__Traslados__Codig__6754599E">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Traslados" EntitySet="Traslados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Traslados__Codig__68487DD7" Association="Self.FK__Traslados__Codig__68487DD7">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Traslados" EntitySet="Traslados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ventas__CodigoCl__47DBAE45" Association="Self.FK__Ventas__CodigoCl__47DBAE45">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ventas__CodigoEm__48CFD27E" Association="Self.FK__Ventas__CodigoEm__48CFD27E">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VentaAccesoriosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CategoriasProducto">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK__Productos__Codig__412EB0B6" FromRole="CategoriasProductos" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ventas" Relationship="Self.FK__Ventas__CodigoCl__47DBAE45" FromRole="Clientes" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Comentario">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoVenta" Type="Int32" />
+          <Property Name="TextoComentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FechaComentario" Type="DateTime" Precision="0" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Venta" Relationship="Self.FK__Comentari__Codig__6383C8BA" FromRole="Comentarios" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="DetallesVenta">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoVenta" Type="Int32" />
+          <Property Name="CodigoProducto" Type="Int32" />
+          <Property Name="Cantidad" Type="Int32" />
+          <Property Name="Subtotal" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Venta" Relationship="Self.FK__DetallesV__Codig__4BAC3F29" FromRole="DetallesVentas" ToRole="Ventas" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__DetallesV__Codig__4CA06362" FromRole="DetallesVentas" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Devolucione">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoVenta" Type="Int32" />
+          <Property Name="CodigoProducto" Type="Int32" />
+          <Property Name="FechaDevolucion" Type="DateTime" Precision="0" />
+          <Property Name="CantidadDevuelta" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Venta" Relationship="Self.FK__Devolucio__Codig__5EBF139D" FromRole="Devoluciones" ToRole="Ventas" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__Devolucio__Codig__5FB337D6" FromRole="Devoluciones" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Traslados" Relationship="Self.FK__Traslados__Codig__6754599E" FromRole="Empleados" ToRole="Traslados" />
+          <NavigationProperty Name="Ventas" Relationship="Self.FK__Ventas__CodigoEm__48CFD27E" FromRole="Empleados" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Garantia">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoVenta" Type="Int32" />
+          <Property Name="DuracionGarantia" Type="Int32" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="0" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Venta" Relationship="Self.FK__Garantias__Codig__5070F446" FromRole="Garantias" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Inventario">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoProducto" Type="Int32" />
+          <Property Name="CantidadEnStock" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__Inventari__Codig__5441852A" FromRole="Inventario" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="MetodosPago">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Transacciones" Relationship="Self.FK__Transacci__Codig__5AEE82B9" FromRole="MetodosPago" ToRole="Transacciones" />
+        </EntityType>
+        <EntityType Name="NotasCredito">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoVenta" Type="Int32" />
+          <Property Name="Monto" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="FechaEmision" Type="DateTime" Precision="0" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Venta" Relationship="Self.FK__NotasCred__Codig__6C190EBB" FromRole="NotasCredito" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Precio" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Stock" Type="Int32" />
+          <Property Name="CodigoCategoria" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="CodigoProveedor" Type="Int32" />
+          <NavigationProperty Name="CategoriasProducto" Relationship="Self.FK__Productos__Codig__412EB0B6" FromRole="Productos" ToRole="CategoriasProductos" />
+          <NavigationProperty Name="DetallesVentas" Relationship="Self.FK__DetallesV__Codig__4CA06362" FromRole="Productos" ToRole="DetallesVentas" />
+          <NavigationProperty Name="Devoluciones" Relationship="Self.FK__Devolucio__Codig__5FB337D6" FromRole="Productos" ToRole="Devoluciones" />
+          <NavigationProperty Name="Inventarios" Relationship="Self.FK__Inventari__Codig__5441852A" FromRole="Productos" ToRole="Inventario" />
+          <NavigationProperty Name="Proveedore" Relationship="Self.FK__Productos__Codig__778AC167" FromRole="Productos" ToRole="Proveedores" />
+          <NavigationProperty Name="Traslados" Relationship="Self.FK__Traslados__Codig__68487DD7" FromRole="Productos" ToRole="Traslados" />
+        </EntityType>
+        <EntityType Name="Proveedore">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Productos" Relationship="Self.FK__Productos__Codig__778AC167" FromRole="Proveedores" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Transaccione">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoVenta" Type="Int32" />
+          <Property Name="CodigoMetodoPago" Type="Int32" />
+          <Property Name="Monto" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="FechaTransaccion" Type="DateTime" Precision="0" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="MetodosPago" Relationship="Self.FK__Transacci__Codig__5AEE82B9" FromRole="Transacciones" ToRole="MetodosPago" />
+          <NavigationProperty Name="Venta" Relationship="Self.FK__Transacci__Codig__59FA5E80" FromRole="Transacciones" ToRole="Ventas" />
+        </EntityType>
+        <EntityType Name="Traslado">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoEmpleado" Type="Int32" />
+          <Property Name="CodigoProducto" Type="Int32" />
+          <Property Name="Cantidad" Type="Int32" />
+          <Property Name="FechaTraslado" Type="DateTime" Precision="0" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Traslados__Codig__6754599E" FromRole="Traslados" ToRole="Empleados" />
+          <NavigationProperty Name="Producto" Relationship="Self.FK__Traslados__Codig__68487DD7" FromRole="Traslados" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Venta">
+          <Key>
+            <PropertyRef Name="Codigo" />
+          </Key>
+          <Property Name="Codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="MontoTotal" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="CodigoCliente" Type="Int32" />
+          <Property Name="CodigoEmpleado" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Ventas__CodigoCl__47DBAE45" FromRole="Ventas" ToRole="Clientes" />
+          <NavigationProperty Name="Comentarios" Relationship="Self.FK__Comentari__Codig__6383C8BA" FromRole="Ventas" ToRole="Comentarios" />
+          <NavigationProperty Name="DetallesVentas" Relationship="Self.FK__DetallesV__Codig__4BAC3F29" FromRole="Ventas" ToRole="DetallesVentas" />
+          <NavigationProperty Name="Devoluciones" Relationship="Self.FK__Devolucio__Codig__5EBF139D" FromRole="Ventas" ToRole="Devoluciones" />
+          <NavigationProperty Name="Empleado" Relationship="Self.FK__Ventas__CodigoEm__48CFD27E" FromRole="Ventas" ToRole="Empleados" />
+          <NavigationProperty Name="Garantias" Relationship="Self.FK__Garantias__Codig__5070F446" FromRole="Ventas" ToRole="Garantias" />
+          <NavigationProperty Name="NotasCreditoes" Relationship="Self.FK__NotasCred__Codig__6C190EBB" FromRole="Ventas" ToRole="NotasCredito" />
+          <NavigationProperty Name="Transacciones" Relationship="Self.FK__Transacci__Codig__59FA5E80" FromRole="Ventas" ToRole="Transacciones" />
+        </EntityType>
+        <Association Name="FK__Productos__Codig__412EB0B6">
+          <End Role="CategoriasProductos" Type="Self.CategoriasProducto" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriasProductos">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="CodigoCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ventas__CodigoCl__47DBAE45">
+          <End Role="Clientes" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="CodigoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Comentari__Codig__6383C8BA">
+          <End Role="Ventas" Type="Self.Venta" Multiplicity="0..1" />
+          <End Role="Comentarios" Type="Self.Comentario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Comentarios">
+              <PropertyRef Name="CodigoVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetallesV__Codig__4BAC3F29">
+          <End Role="Ventas" Type="Self.Venta" Multiplicity="0..1" />
+          <End Role="DetallesVentas" Type="Self.DetallesVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="DetallesVentas">
+              <PropertyRef Name="CodigoVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DetallesV__Codig__4CA06362">
+          <End Role="Productos" Type="Self.Producto" Multiplicity="0..1" />
+          <End Role="DetallesVentas" Type="Self.DetallesVenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="DetallesVentas">
+              <PropertyRef Name="CodigoProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Devolucio__Codig__5EBF139D">
+          <End Role="Ventas" Type="Self.Venta" Multiplicity="0..1" />
+          <End Role="Devoluciones" Type="Self.Devolucione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Devoluciones">
+              <PropertyRef Name="CodigoVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Devolucio__Codig__5FB337D6">
+          <End Role="Productos" Type="Self.Producto" Multiplicity="0..1" />
+          <End Role="Devoluciones" Type="Self.Devolucione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Devoluciones">
+              <PropertyRef Name="CodigoProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Traslados__Codig__6754599E">
+          <End Role="Empleados" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Traslados" Type="Self.Traslado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Traslados">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ventas__CodigoEm__48CFD27E">
+          <End Role="Empleados" Type="Self.Empleado" Multiplicity="0..1" />
+          <End Role="Ventas" Type="Self.Venta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Ventas">
+              <PropertyRef Name="CodigoEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Garantias__Codig__5070F446">
+          <End Role="Ventas" Type="Self.Venta" Multiplicity="0..1" />
+          <End Role="Garantias" Type="Self.Garantia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Garantias">
+              <PropertyRef Name="CodigoVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Inventari__Codig__5441852A">
+          <End Role="Productos" Type="Self.Producto" Multiplicity="0..1" />
+          <End Role="Inventario" Type="Self.Inventario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Inventario">
+              <PropertyRef Name="CodigoProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacci__Codig__5AEE82B9">
+          <End Role="MetodosPago" Type="Self.MetodosPago" Multiplicity="0..1" />
+          <End Role="Transacciones" Type="Self.Transaccione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MetodosPago">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Transacciones">
+              <PropertyRef Name="CodigoMetodoPago" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NotasCred__Codig__6C190EBB">
+          <End Role="Ventas" Type="Self.Venta" Multiplicity="0..1" />
+          <End Role="NotasCredito" Type="Self.NotasCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="NotasCredito">
+              <PropertyRef Name="CodigoVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Productos__Codig__778AC167">
+          <End Role="Proveedores" Type="Self.Proveedore" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="CodigoProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Traslados__Codig__68487DD7">
+          <End Role="Productos" Type="Self.Producto" Multiplicity="0..1" />
+          <End Role="Traslados" Type="Self.Traslado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Traslados">
+              <PropertyRef Name="CodigoProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacci__Codig__59FA5E80">
+          <End Role="Ventas" Type="Self.Venta" Multiplicity="0..1" />
+          <End Role="Transacciones" Type="Self.Transaccione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ventas">
+              <PropertyRef Name="Codigo" />
+            </Principal>
+            <Dependent Role="Transacciones">
+              <PropertyRef Name="CodigoVenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VentaAccesoriosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CategoriasProductos" EntityType="Self.CategoriasProducto" />
+          <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+          <EntitySet Name="Comentarios" EntityType="Self.Comentario" />
+          <EntitySet Name="DetallesVentas" EntityType="Self.DetallesVenta" />
+          <EntitySet Name="Devoluciones" EntityType="Self.Devolucione" />
+          <EntitySet Name="Empleados" EntityType="Self.Empleado" />
+          <EntitySet Name="Garantias" EntityType="Self.Garantia" />
+          <EntitySet Name="Inventarios" EntityType="Self.Inventario" />
+          <EntitySet Name="MetodosPagoes" EntityType="Self.MetodosPago" />
+          <EntitySet Name="NotasCreditoes" EntityType="Self.NotasCredito" />
+          <EntitySet Name="Productos" EntityType="Self.Producto" />
+          <EntitySet Name="Proveedores" EntityType="Self.Proveedore" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Transacciones" EntityType="Self.Transaccione" />
+          <EntitySet Name="Traslados" EntityType="Self.Traslado" />
+          <EntitySet Name="Ventas" EntityType="Self.Venta" />
+          <AssociationSet Name="FK__Productos__Codig__412EB0B6" Association="Self.FK__Productos__Codig__412EB0B6">
+            <End Role="CategoriasProductos" EntitySet="CategoriasProductos" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ventas__CodigoCl__47DBAE45" Association="Self.FK__Ventas__CodigoCl__47DBAE45">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Comentari__Codig__6383C8BA" Association="Self.FK__Comentari__Codig__6383C8BA">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="Comentarios" EntitySet="Comentarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetallesV__Codig__4BAC3F29" Association="Self.FK__DetallesV__Codig__4BAC3F29">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="DetallesVentas" EntitySet="DetallesVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DetallesV__Codig__4CA06362" Association="Self.FK__DetallesV__Codig__4CA06362">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="DetallesVentas" EntitySet="DetallesVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Devolucio__Codig__5EBF139D" Association="Self.FK__Devolucio__Codig__5EBF139D">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="Devoluciones" EntitySet="Devoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Devolucio__Codig__5FB337D6" Association="Self.FK__Devolucio__Codig__5FB337D6">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Devoluciones" EntitySet="Devoluciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Traslados__Codig__6754599E" Association="Self.FK__Traslados__Codig__6754599E">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Traslados" EntitySet="Traslados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ventas__CodigoEm__48CFD27E" Association="Self.FK__Ventas__CodigoEm__48CFD27E">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Ventas" EntitySet="Ventas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Garantias__Codig__5070F446" Association="Self.FK__Garantias__Codig__5070F446">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="Garantias" EntitySet="Garantias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Inventari__Codig__5441852A" Association="Self.FK__Inventari__Codig__5441852A">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Inventario" EntitySet="Inventarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacci__Codig__5AEE82B9" Association="Self.FK__Transacci__Codig__5AEE82B9">
+            <End Role="MetodosPago" EntitySet="MetodosPagoes" />
+            <End Role="Transacciones" EntitySet="Transacciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NotasCred__Codig__6C190EBB" Association="Self.FK__NotasCred__Codig__6C190EBB">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="NotasCredito" EntitySet="NotasCreditoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Productos__Codig__778AC167" Association="Self.FK__Productos__Codig__778AC167">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Traslados__Codig__68487DD7" Association="Self.FK__Traslados__Codig__68487DD7">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Traslados" EntitySet="Traslados" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacci__Codig__59FA5E80" Association="Self.FK__Transacci__Codig__59FA5E80">
+            <End Role="Ventas" EntitySet="Ventas" />
+            <End Role="Transacciones" EntitySet="Transacciones" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VentaAccesoriosModelStoreContainer" CdmEntityContainer="VentaAccesoriosEntities">
+          <EntitySetMapping Name="CategoriasProductos">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.CategoriasProducto">
+              <MappingFragment StoreEntitySet="CategoriasProductos">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.Cliente">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comentarios">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.Comentario">
+              <MappingFragment StoreEntitySet="Comentarios">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoVenta" ColumnName="CodigoVenta" />
+                <ScalarProperty Name="TextoComentario" ColumnName="TextoComentario" />
+                <ScalarProperty Name="FechaComentario" ColumnName="FechaComentario" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetallesVentas">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.DetallesVenta">
+              <MappingFragment StoreEntitySet="DetallesVentas">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoVenta" ColumnName="CodigoVenta" />
+                <ScalarProperty Name="CodigoProducto" ColumnName="CodigoProducto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Devoluciones">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.Devolucione">
+              <MappingFragment StoreEntitySet="Devoluciones">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoVenta" ColumnName="CodigoVenta" />
+                <ScalarProperty Name="CodigoProducto" ColumnName="CodigoProducto" />
+                <ScalarProperty Name="FechaDevolucion" ColumnName="FechaDevolucion" />
+                <ScalarProperty Name="CantidadDevuelta" ColumnName="CantidadDevuelta" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleados">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.Empleado">
+              <MappingFragment StoreEntitySet="Empleados">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Garantias">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.Garantia">
+              <MappingFragment StoreEntitySet="Garantias">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoVenta" ColumnName="CodigoVenta" />
+                <ScalarProperty Name="DuracionGarantia" ColumnName="DuracionGarantia" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventarios">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.Inventario">
+              <MappingFragment StoreEntitySet="Inventario">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoProducto" ColumnName="CodigoProducto" />
+                <ScalarProperty Name="CantidadEnStock" ColumnName="CantidadEnStock" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MetodosPagoes">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.MetodosPago">
+              <MappingFragment StoreEntitySet="MetodosPago">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotasCreditoes">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.NotasCredito">
+              <MappingFragment StoreEntitySet="NotasCredito">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoVenta" ColumnName="CodigoVenta" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productos">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.Producto">
+              <MappingFragment StoreEntitySet="Productos">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="CodigoCategoria" ColumnName="CodigoCategoria" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="CodigoProveedor" ColumnName="CodigoProveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedores">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.Proveedore">
+              <MappingFragment StoreEntitySet="Proveedores">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transacciones">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.Transaccione">
+              <MappingFragment StoreEntitySet="Transacciones">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoVenta" ColumnName="CodigoVenta" />
+                <ScalarProperty Name="CodigoMetodoPago" ColumnName="CodigoMetodoPago" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="FechaTransaccion" ColumnName="FechaTransaccion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Traslados">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.Traslado">
+              <MappingFragment StoreEntitySet="Traslados">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
+                <ScalarProperty Name="CodigoProducto" ColumnName="CodigoProducto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="FechaTraslado" ColumnName="FechaTraslado" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ventas">
+            <EntityTypeMapping TypeName="VentaAccesoriosModel.Venta">
+              <MappingFragment StoreEntitySet="Ventas">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+                <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+                <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

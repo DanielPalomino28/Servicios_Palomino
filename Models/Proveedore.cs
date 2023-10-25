@@ -12,22 +12,19 @@ namespace Servicios_Palomino.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class FACTura
+    public partial class Proveedore
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FACTura()
+        public Proveedore()
         {
-            this.DEtalleFActuras = new HashSet<DEtalleFActura>();
+            this.Productos = new HashSet<Producto>();
         }
     
-        public int Numero { get; set; }
-        public string Documento { get; set; }
-        public System.DateTime Fecha { get; set; }
-        public int CodigoEmpleado { get; set; }
+        public int Codigo { get; set; }
+        public string Nombre { get; set; }
+        public bool Activo { get; set; }
     
-        public virtual CLIEnte CLIEnte { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DEtalleFActura> DEtalleFActuras { get; set; }
-        public virtual EMpleadoCArgo EMpleadoCArgo { get; set; }
+        public virtual ICollection<Producto> Productos { get; set; }
     }
 }

@@ -12,14 +12,14 @@ namespace Servicios_Palomino.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TELEfono
+    public partial class Comentario
     {
         public int Codigo { get; set; }
-        public string Numero { get; set; }
-        public string Documento { get; set; }
-        public int CodigoTipoTelefono { get; set; }
+        public Nullable<int> CodigoVenta { get; set; }
+        public string TextoComentario { get; set; }
+        public Nullable<System.DateTime> FechaComentario { get; set; }
+        public bool Activo { get; set; }
     
-        public virtual CLIEnte CLIEnte { get; set; }
-        public virtual TIpoTElefono TIpoTElefono { get; set; }
+        public virtual Venta Venta { get; set; }
     }
 }

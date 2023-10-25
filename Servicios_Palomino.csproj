@@ -168,38 +168,33 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Clases\clsCliente.cs" />
+    <Compile Include="Clases\clsProveedor.cs" />
+    <Compile Include="Clases\clsCategoriaProducto.cs" />
     <Compile Include="Clases\clsRecarga.cs" />
-    <Compile Include="Clases\clsEmpleado.cs" />
     <Compile Include="Clases\clsSeguroVehiculos.cs" />
     <Compile Include="Clases\clsCafeteriaITM.cs" />
     <Compile Include="Clases\clsServiciosEpm.cs" />
     <Compile Include="Clases\clsReservasInder.cs" />
-    <Compile Include="Clases\clsTipoProducto.cs" />
-    <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\ProveedorController.cs" />
+    <Compile Include="Controllers\CategoriaProductoController.cs" />
     <Compile Include="Controllers\RecargaController.cs" />
-    <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\SeguroVehiculosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CafeteriaITMController.cs" />
     <Compile Include="Controllers\ServiciosEpmController.cs" />
     <Compile Include="Controllers\ReservaController.cs" />
-    <Compile Include="Controllers\TipoProductoController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CARGo.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+    <Compile Include="Models\CategoriasProducto.cs">
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CIUDad.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+    <Compile Include="Models\Cliente.cs">
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CLIEnte.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\COntactoPRoveedor.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+    <Compile Include="Models\Comentario.cs">
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DBExamen.Context.cs">
       <AutoGen>True</AutoGen>
@@ -216,62 +211,47 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBExamen.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBSuper.Context.cs">
+    <Compile Include="Models\DbVentaAccesorios.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBSuper.Context.tt</DependentUpon>
+      <DependentUpon>DbVentaAccesorios.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBSuper.cs">
+    <Compile Include="Models\DbVentaAccesorios.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBSuper.tt</DependentUpon>
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBSuper.Designer.cs">
+    <Compile Include="Models\DbVentaAccesorios.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DBSuper.edmx</DependentUpon>
+      <DependentUpon>DbVentaAccesorios.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DEPArtamento.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+    <Compile Include="Models\DetallesVenta.cs">
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DEtalleDEvolucion.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+    <Compile Include="Models\Devolucione.cs">
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DEtalleFActura.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+    <Compile Include="Models\Empleado.cs">
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DEtalleFacturaCompra.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+    <Compile Include="Models\Garantia.cs">
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DEVOlucion.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+    <Compile Include="Models\Inventario.cs">
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EMPLeado.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+    <Compile Include="Models\MetodosPago.cs">
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EMpleadoCArgo.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+    <Compile Include="Models\NotasCredito.cs">
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FACTura.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+    <Compile Include="Models\Producto.cs">
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FActuraCOmpra.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NOtaCRedito.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PAI.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PRODucto.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PRoductoPRoveedor.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PROVeedor.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+    <Compile Include="Models\Proveedore.cs">
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Recarga.cs">
       <DependentUpon>DBExamen.tt</DependentUpon>
@@ -280,23 +260,17 @@
     <Compile Include="Models\CafeteriaITM.cs" />
     <Compile Include="Models\ServicosEpm.cs" />
     <Compile Include="Models\ReservasInder.cs" />
-    <Compile Include="Models\SUCUrsal.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SUPErmercado.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TELEfono.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+    <Compile Include="Models\Transaccione.cs">
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TIpoPRoducto.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+    <Compile Include="Models\Traslado.cs">
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TIpoTElefono.cs">
-      <DependentUpon>DBSuper.tt</DependentUpon>
+    <Compile Include="Models\Venta.cs">
+      <DependentUpon>DbVentaAccesorios.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -330,15 +304,15 @@
       <DependentUpon>DBExamen.edmx</DependentUpon>
       <LastGenOutput>DBExamen.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DBSuper.Context.tt">
+    <Content Include="Models\DbVentaAccesorios.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBSuper.edmx</DependentUpon>
-      <LastGenOutput>DBSuper.Context.cs</LastGenOutput>
+      <DependentUpon>DbVentaAccesorios.edmx</DependentUpon>
+      <LastGenOutput>DbVentaAccesorios.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DBSuper.tt">
+    <Content Include="Models\DbVentaAccesorios.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBSuper.edmx</DependentUpon>
-      <LastGenOutput>DBSuper.cs</LastGenOutput>
+      <DependentUpon>DbVentaAccesorios.edmx</DependentUpon>
+      <LastGenOutput>DbVentaAccesorios.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -365,19 +339,19 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\DBSuper.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DBSuper.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DBSuper.edmx.diagram">
-      <DependentUpon>DBSuper.edmx</DependentUpon>
-    </Content>
     <EntityDeploy Include="Models\DBExamen.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBExamen.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Models\DBExamen.edmx.diagram">
       <DependentUpon>DBExamen.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\DbVentaAccesorios.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbVentaAccesorios.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DbVentaAccesorios.edmx.diagram">
+      <DependentUpon>DbVentaAccesorios.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
